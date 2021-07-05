@@ -8,11 +8,8 @@ st.title('Mass calculator for mass spectrometry')
 
 def build_column_of_isotopes(neutral_mass, charge):
     mass_converter = MassConverter()
-    isotopes = []
-    for isotope in range(0, 10):
-        isotopes += [mass_converter.NeutralMonoisotopicMassToObservedMz(
-            neutral_mass, charge, isotope)]
-    return isotopes
+    return [mass_converter.NeutralMonoisotopicMassToObservedMz(neutral_mass, charge, isotope)
+            for isotope in range(0, 10)]
 
 
 def build_mass_table(neutral_mass):
